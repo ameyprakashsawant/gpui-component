@@ -30,9 +30,13 @@ jobs:
       - uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
           components: clippy
-      - name: Install system dependencies
+      - name: Install system dependencies (Unix)
         if: ${{ matrix.run_on != 'windows-latest' }}
         run: script/bootstrap
+      - name: Install system dependencies (Windows)
+        if: ${{ matrix.run_on == 'windows-latest' }}
+        run: .\script\install-window.ps1
+        shell: powershell
       - name: Machete
         if: ${{ matrix.run_on == 'macos-latest' }}
         uses: bnjbvr/cargo-machete@v0.9.1

@@ -262,7 +262,11 @@ impl http_client::HttpClient for ReqwestClient {
             let mut builder = http::Response::builder()
                 .status(response.status().as_u16())
                 .version(response.version());
-            *builder.headers_mut().unwrap() = headers;
+            if let Some(headers_mut) = builder.headers_mut() {
+                *headers_mut = headers;
+            } else {
+                return Err(anyhow!("Failed to build HTTP response: invalid response builder state"));
+            }
 
             let bytes = response
                 .bytes_stream()

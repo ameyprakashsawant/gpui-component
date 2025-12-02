@@ -21,7 +21,7 @@ impl<T: IconNamed> From<T> for Icon {
 }
 
 /// The name of an icon in the asset bundle.
-#[derive(IntoElement, Clone)]
+#[derive(IntoElement, Clone, Debug, PartialEq, Eq, Copy)]
 pub enum IconName {
     ALargeSmall,
     ArrowDown,

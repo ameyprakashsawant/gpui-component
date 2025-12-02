@@ -29,6 +29,7 @@ mod otp_input_story;
 mod popover_story;
 mod progress_story;
 mod radio_story;
+mod rating_story;
 mod resizable_story;
 mod scrollbar_story;
 mod select_story;
@@ -89,6 +90,7 @@ pub use otp_input_story::OtpInputStory;
 pub use popover_story::PopoverStory;
 pub use progress_story::ProgressStory;
 pub use radio_story::RadioStory;
+pub use rating_story::RatingStory;
 pub use resizable_story::ResizableStory;
 pub use scrollbar_story::ScrollbarStory;
 pub use select_story::SelectStory;
@@ -669,6 +671,7 @@ impl StoryState {
             "DialogStory" => story!(DialogStory),
             "PopoverStory" => story!(PopoverStory),
             "ProgressStory" => story!(ProgressStory),
+            "RatingStory" => story!(RatingStory),
             "ResizableStory" => story!(ResizableStory),
             "ScrollbarStory" => story!(ScrollbarStory),
             "SwitchStory" => story!(SwitchStory),
